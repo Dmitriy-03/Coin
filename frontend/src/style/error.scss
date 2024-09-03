@@ -1,0 +1,33 @@
+@import './mixin.scss';
+
+.errors {
+  position: fixed;
+  bottom: 20px;
+  right: 40px;
+
+  &__item {
+    @include relative();
+    padding: 12px 104px 12px 24px;
+    border: 1px solid $GuardsmanRed;
+    border-radius: 8px;
+    color: $GuardsmanRed;
+    background-color: $Bizarre;
+    font-family: 'Ubuntu', sans-serif;
+    line-height: 24px;
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  &__close-button {
+    @include absolute();
+    top: 12px;
+    right: 16px;
+    width: 24px;
+    height: 24px;
+    background-image: url('/src/assets/img/close.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}

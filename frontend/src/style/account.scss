@@ -1,0 +1,314 @@
+@import './mixin.scss';
+
+.accounts {
+  @include containerWithPadTop();
+
+  &__top {
+    @include flexCenterAlign();
+    margin-bottom: 50px;
+  }
+
+  &__heading {
+    @include pageTitle();
+    margin-right: 35px;
+  }
+
+  & .choices {
+    width: 300px;
+    @include select();
+
+    & .choices__inner {
+      border-color: $Denim;
+    }
+  }
+
+  &__list {
+    @include grid();
+    column-gap: 70px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &__button {
+    @include pageIconButton();
+    background-image: url('/src/assets/img/plus.svg');
+  }
+}
+
+.account-item {
+  @include relative();
+  padding: 22px;
+  box-shadow: 0px 0px 20px 2px $Mischka;
+
+  &__number {
+    margin-bottom: 9px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+  }
+
+  &__balance {
+    margin-bottom: 31px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  &__lt-heading {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 13px;
+    line-height: 15.25px;
+    font-weight: 700;
+  }
+
+  &__lt-date {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 13px;
+    line-height: 15.25px;
+  }
+
+  &__button {
+    @include absolute();
+    @include pageButton();
+    bottom: 20px;
+    right: 20px;
+    font-size: 16px;
+  }
+}
+
+@import './mixin.scss';
+
+.extended-info {
+  @include containerWithPadTop();
+
+  &__grid {
+    @include grid();
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 288px 1fr;
+    grid-template-areas:
+      'transfer dynamic'
+      'transactions transactions';
+  }
+
+  &__transfer-block {
+    grid-area: transfer;
+  }
+
+  &__dynamic-block {
+    grid-area: dynamic;
+    cursor: pointer;
+  }
+
+  &__transactions-block {
+    grid-area: transactions;
+    cursor: pointer;
+  }
+}
+
+.nav {
+  font-family: 'Work Sans', sans-serif;
+
+  &__top {
+    @include flexCenterAlign();
+    margin-bottom: 24px;
+  }
+
+  &__heading {
+    @include pageTitle();
+    margin-right: auto;
+  }
+
+  &__back-button {
+    @include pageIconButton();
+    background-image: url('/src/assets/img/arrow.svg');
+  }
+
+  &__main-info {
+    @include flexCenterAlign();
+    margin-bottom: 50px;
+  }
+
+  &__number {
+    margin-right: auto;
+    font-weight: 400;
+    font-size: 34px;
+    line-height: 40px;
+  }
+
+  &__balance {
+    @include flexCenterAlign();
+  }
+
+  &__balance-heading {
+    @include blockTitle();
+    margin-bottom: 0;
+    margin-right: 50px;
+  }
+
+  &__balance-text {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+.transfer {
+  padding: 25px 50px;
+  @include relative();
+  background-color: $AthensGray;
+  border-radius: 50px;
+  font-family: 'Work Sans', sans-serif;
+
+  &__heading {
+    @include blockTitle();
+  }
+
+  &__label {
+    margin-bottom: 25px;
+    @include flexCenterAlign();
+    @include relative();
+    justify-content: space-between;
+  }
+
+  &__label-text {
+    @include labelText();
+  }
+
+  &__input {
+    @include input();
+    width: 300px;
+  }
+
+  &__autocomplete {
+    @include absolute();
+    z-index: 5;
+    width: 300px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    right: 0;
+    top: 42px;
+    @include flexColumn();
+    box-shadow: 0px 0px 20px 2px $Mischka;
+    background-color: $White;
+    border-radius: 7px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  &__autocomplete.visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__autocomplete-button {
+    padding: 10px 16px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    text-align: start;
+    transition: background-color 0.3s;
+
+    &:hover,
+    &:focus-visible {
+      background-color: $Anakiwa;
+    }
+  }
+
+  &__button {
+    @include pageIconButton();
+    @include absolute();
+    right: 186px;
+    background-image: url('/src/assets/img/mail.svg');
+  }
+}
+
+.dynamic {
+  position: relative;
+  padding: 25px 50px 20px;
+  @include flexColumn();
+  border-radius: 50px;
+  font-family: 'Work Sans', sans-serif;
+  box-shadow: 0px 0px 20px 2px $Mischka;
+
+  &__heading {
+    @include blockTitle();
+    margin-bottom: auto;
+  }
+
+  &__chart {
+    height: 205px;
+  }
+}
+
+.transactions {
+  padding: 25px 50px 66px;
+  background-color: $AthensGray;
+  font-family: 'Ubuntu', sans-serif;
+  border-radius: 56px;
+
+  &__heading {
+    @include blockTitle();
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  &__table-head {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    border-radius: 15px;
+    color: $White;
+    background-color: $Denim;
+  }
+
+  &__table-head-td {
+    width: max-content;
+    white-space: nowrap;
+    text-align: start;
+    padding: 20px 0 20px 50px;
+  }
+
+  &__table-head-td:first-child {
+    border-radius: 15px 0 0 15px;
+  }
+
+  &__table-head-td:last-child {
+    width: 100%;
+    border-radius: 0 15px 15px 0;
+  }
+
+  &__table-td {
+    padding: 21px 0 26px 50px;
+    line-height: 24px;
+    color: $OxfordBlue;
+    white-space: nowrap;
+    border-bottom: 2px solid $LinkWater2;
+  }
+
+  &__table-td.plus {
+    color: $Mantis;
+
+    &::before {
+      content: '+ ';
+    }
+  }
+
+  &__table-td.minus {
+    color: $Carnation;
+
+    &::before {
+      content: '- ';
+    }
+  }
+}
+
+.pay-history {
+  @include containerWithPadTop();
+
+  &__grid {
+    @include grid();
+    grid-template-rows: 288px 288px max-content;
+  }
+}

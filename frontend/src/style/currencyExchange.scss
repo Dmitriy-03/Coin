@@ -1,0 +1,236 @@
+@import './mixin.scss';
+
+.currency {
+  @include containerWithPadTop();
+  font-family: 'Work Sans', sans-serif;
+
+  &__heading {
+    @include pageTitle();
+    margin-bottom: 56px;
+  }
+
+  &__grid {
+    @include grid();
+    grid-template-columns: minmax(max-content, 588px) minmax(max-content, 703px);
+    grid-template-rows: max-content;
+    grid-template-areas:
+      'my-currencies real-time-rates'
+      'exchange real-time-rates';
+  }
+
+  &__my-currencies {
+    grid-area: my-currencies;
+  }
+
+  &__exchange-block {
+    grid-area: exchange;
+  }
+
+  &__real-time-rates {
+    grid-area: real-time-rates;
+  }
+}
+
+.my-currencies {
+  padding: 50px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 20px 2px $Mischka;
+
+  &__heading {
+    @include blockTitle();
+  }
+
+  &__list {
+    overflow-x: hidden;
+  }
+
+  &__item {
+    @include flexCenterAlign();
+    @include relative();
+
+    &:before {
+      position: absolute;
+      float: left;
+      width: 0;
+      white-space: nowrap;
+      content: '. . . . . . . . . . . . . . . . . . . . '
+        '. . . . . . . . . . . . . . . . . . . . '
+        '. . . . . . . . . . . . . . . . . . . . ';
+    }
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 25px;
+  }
+
+  &__code {
+    @include relative();
+    padding-right: 2px;
+    z-index: 2;
+    background-color: $White;
+    margin-right: auto;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  &__amount {
+    @include relative();
+    padding-left: 2px;
+    z-index: 2;
+    background-color: $White;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+.exchange {
+  position: relative;
+  z-index: 10;
+  padding: 50px;
+  border-radius: 50px;
+  box-shadow: 0px 0px 20px 2px $Mischka;
+  @include grid();
+  gap: 25px;
+  grid-template-columns: minmax(164px, max-content) minmax(164px, max-content) max-content;
+  grid-template-areas:
+    'exchange-heading exchange-heading exchange-heading'
+    'exchange-from exchange-to exchange-btn'
+    'exchange-label exchange-label exchange-btn';
+
+  &__heading {
+    @include blockTitle();
+    margin-bottom: 0;
+    grid-area: exchange-heading;
+  }
+
+  &__select-container:first-child {
+    grid-area: exchange-from;
+  }
+
+  &__select-container:last-child {
+    grid-area: exchange-to;
+  }
+
+  &__select-container {
+    @include flexCenterAlign();
+  }
+
+  & .choices {
+    @include select();
+    width: 100%;
+  }
+
+  &__span {
+    margin-right: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+  }
+
+  &__label {
+    grid-area: exchange-label;
+    @include flexCenterAlign();
+  }
+
+  &__label-text {
+    margin-right: 8px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+  }
+
+  &__input {
+    @include input();
+    width: 100%;
+  }
+
+  &__button {
+    grid-area: exchange-btn;
+    @include pageButton();
+    padding-left: 13px;
+    padding-right: 13px;
+    font-size: 16px;
+  }
+}
+
+.real-time-rates {
+  padding: 50px;
+  background-color: $AthensGray;
+  border-radius: 50px;
+
+  &__heading {
+    @include blockTitle();
+  }
+
+  &__list {
+    overflow-x: hidden;
+  }
+
+  &__item {
+    @include flexCenterAlign();
+    @include relative();
+
+    &:before {
+      position: absolute;
+      float: left;
+      width: 0;
+      white-space: nowrap;
+      content: '. . . . . . . . . . . . . . . . . . . . '
+        '. . . . . . . . . . . . . . . . . . . . '
+        '. . . . . . . . . . . . . . . . . . . . ';
+    }
+
+    &::after {
+      @include relative();
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-size: 20px 10px;
+      background-color: $AthensGray;
+    }
+
+    &.up::before {
+      color: $Mantis;
+    }
+
+    &.up::after {
+      content: '';
+      width: 35px;
+      height: 20px;
+      background-image: url('/src/assets/img/up.svg');
+    }
+
+    &.down::before {
+      color: $Carnation;
+    }
+
+    &.down::after {
+      content: '';
+      width: 35px;
+      height: 15px;
+      background-image: url('/src/assets/img/down.svg');
+    }
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 25px;
+  }
+
+  &__code {
+    @include relative();
+    padding-right: 2px;
+    z-index: 2;
+    background-color: $AthensGray;
+    margin-right: auto;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  &__value {
+    @include relative();
+    padding-left: 2px;
+    z-index: 2;
+    background-color: $AthensGray;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}

@@ -1,0 +1,200 @@
+@import './variables.scss';
+
+@mixin clearStandart {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: inherit;
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+}
+
+@mixin container {
+  max-width: 1340px;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+
+@mixin containerWithPadTop {
+  @include container();
+  padding-top: 50px;
+}
+
+@mixin flexCenterAlign {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin relative {
+  position: relative;
+}
+
+@mixin absolute {
+  position: absolute;
+}
+
+@mixin button {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  line-height: 20px;
+  max-width: max-content;
+  border-radius: 7px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 500;
+}
+
+@mixin pageButton() {
+  @include button();
+  padding-left: 21px;
+  padding-right: 21px;
+  background-color: $Denim;
+  color: $White;
+  transition: background-color 0.3s;
+
+  &:disabled {
+    background-color: $Ghost;
+    cursor: auto;
+  }
+
+  &:hover:not(:disabled),
+  &:focus-visible:not(:disabled) {
+    background-color: $HavelockBlue;
+  }
+
+  &:active:not(:disabled) {
+    background-color: $VeniceBlue;
+  }
+}
+
+@mixin pageIconButton() {
+  @include pageButton();
+  padding-left: 58px;
+  padding-right: 24px;
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  background-position: 24px center;
+  font-size: 16px;
+}
+
+@mixin pageTitle {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 40px;
+  color: $Black;
+}
+
+@mixin blockTitle {
+  margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+@mixin input {
+  padding: 10px 10px 10px 16px;
+  border-radius: 7px;
+  border: 1px solid $GrayChateau;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  color: $OxfordBlue;
+  transition: border-color 0.3s, background-color 0.3s;
+
+  &::placeholder {
+    color: $PaleSky;
+  }
+
+  &:hover,
+  &:focus-visible {
+    border-color: $Denim;
+    background-color: $WhiteLilac;
+  }
+
+  &:disabled {
+    background-color: $Ghost;
+    cursor: auto;
+
+    &::placeholder {
+      color: $White;
+    }
+  }
+}
+
+@mixin grid {
+  display: grid;
+  gap: 50px;
+}
+
+@mixin select {
+  margin-right: auto;
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: 'Ubuntu', sans-serif;
+
+  &[data-type*='select-one']::after {
+    right: 20px;
+  }
+
+  & .choices__inner {
+    padding: 0px;
+    min-height: 0px;
+    border: 1px solid $GrayChateau;
+    border-radius: 7px;
+    background-color: $White;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  &.is-disabled .choices__inner {
+    background-color: $Ghost;
+    color: $White;
+  }
+
+  & .choices__list--single {
+    padding: 0px;
+  }
+
+  & .choices__list--dropdown {
+    margin-top: 2px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    border-radius: 7px;
+    box-shadow: 0px 0px 20px 2px $Mischka;
+  }
+
+  & .choices__item {
+    font-size: inherit;
+    padding: 10px 16px;
+  }
+
+  & .choices__item.is-highlighted {
+    background-color: $Anakiwa;
+  }
+
+  & .choices__item.is-selected {
+    background-image: url('/src/assets/img/check.svg');
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    background-position: right 16px center;
+  }
+
+  & .choices__list--dropdown .choices__item[data-value*='placeholder'] {
+    display: none;
+  }
+}
+
+@mixin labelText {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 500;
+  line-height: 20px;
+}
