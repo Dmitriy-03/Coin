@@ -1,0 +1,123 @@
+@import './mixin.scss';
+
+html {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  scrollbar-gutter: stable;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+*:focus-visible {
+  outline: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+a,
+button {
+  @include clearStandart();
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-display: swap;
+  src: local('Work Sans Bold'), local('WorkSansBold'), local('Work-Sans-Bold'),
+    url('/src/assets/fonts/WorkSansBold.woff2') format('woff2'),
+    url('/src/assets/fonts/WorkSansBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-display: swap;
+  src: local('Work Sans Semi Bold'), local('WorkSansSemiBold'),
+    local('Work-Sans-Semi-Bold'),
+    url('/src/assets/fonts/WorkSansSemiBold.woff2') format('woff2'),
+    url('/src/assets/fonts/WorkSansSemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-display: swap;
+  src: local('Work Sans Medium'), local('WorkSansMedium'),
+    local('Work-Sans-Medium'),
+    url('/src/assets/fonts/WorkSansMedium.woff2') format('woff2'),
+    url('/src/assets/fonts/WorkSansMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-display: swap;
+  src: local('Work Sans Regular'), local('WorkSansRegular'),
+    local('Work-Sans-Regular'),
+    url('/src/assets/fonts/WorkSansRegular.woff2') format('woff2'),
+    url('/src/assets/fonts/WorkSansRegular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-display: swap;
+  src: local('Ubuntu Medium'), local('UbuntuMedium'), local('Ubuntu-Medium'),
+    url('/src/assets/fonts/UbuntuMedium.woff2') format('woff2'),
+    url('/src/assets/fonts/UbuntuMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-display: swap;
+  src: local('Ubuntu Regular'), local('UbuntuRegular'), local('Ubuntu-Regular'),
+    url('/src/assets/fonts/UbuntuRegular.woff2') format('woff2'),
+    url('/src/assets/fonts/UbuntuRegular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-display: swap;
+  src: local('Roboto Medium'), local('RobotoMedium'), local('Roboto-Medium'),
+    url('/src/assets/fonts/RobotoMedium.woff2') format('woff2'),
+    url('/src/assets/fonts/RobotoMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: $Mirage;
+}
+
+.valid {
+  border-color: $Mantis;
+}
+
+.error {
+  border-color: $GuardsmanRed;
+}

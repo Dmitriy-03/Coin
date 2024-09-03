@@ -1,0 +1,47 @@
+@import './mixin.scss';
+
+.start {
+  @include container();
+  max-width: 500px;
+
+  &__form {
+    @include flexColumn();
+    margin-top: 262px;
+    padding: 50px 85px 50px 115px;
+    background-color: $AthensGray;
+    border-radius: 50px;
+  }
+
+  &__heading {
+    @include pageTitle();
+    margin-bottom: 35px;
+  }
+
+  &__label {
+    @include relative();
+    margin-bottom: 25px;
+  }
+
+  &__label:last-of-type {
+    margin-bottom: 30px;
+  }
+
+  &__input {
+    @include input();
+    width: 100%;
+  }
+
+  &__label-text {
+    @include absolute();
+    width: 80px;
+    text-align: end;
+    left: -100px;
+    top: 12px;
+    @include labelText();
+  }
+
+  &__button {
+    @include pageButton();
+    font-size: 14px;
+  }
+}
